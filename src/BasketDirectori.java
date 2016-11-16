@@ -67,27 +67,27 @@ public class BasketDirectori<C,P> {
     }
     public String getClubInfo (String Name){
         if(this.AllClubs.containsKey(Name)){
-        return "Club: {"+ Name +"} " + " Jugadors: {" + Players(this.AllClubs.get(Name))+"}";
+        return "Club: {"+ Name +"} " + " Players: {" + Players(this.AllClubs.get(Name))+"}";
             }
         else{
-            return "Aquest club no existeix";
+            return "This player doesn't exist";
         }
     }
     public String getPlayerInfo (String NIF){
         if(this.AllPlayers.containsKey(NIF)){
-            return "Informació del jugador:\n Nom jugador:{ " + this.AllPlayers.get(NIF).getName()+ " }" + " NIF:{ " + NIF + " } " + " Alçada:{ "+this.AllPlayers.get(NIF).getHeight()+" } " 
-                    +" Any de naixement:{ "+this.AllPlayers.get(NIF).getBorn() + " } " + " Posició: { " + this.AllPlayers.get(NIF).getPosition() + " } " 
-                    + " Nom club: { " + this.AllPlayers.get(NIF).getClub() + " } "
-                    +" País d'origen: { " + this.AllPlayers.get(NIF).getCountry() + " } " ;
+            return "Player data:\n Player name:{ " + this.AllPlayers.get(NIF).getName()+ " }" + " NIF:{ " + NIF + " } " + " Height:{ "+this.AllPlayers.get(NIF).getHeight()+" } " 
+                    +" Birth:{ "+this.AllPlayers.get(NIF).getBorn() + " } " + " Position: { " + this.AllPlayers.get(NIF).getPosition() + " } " 
+                    + " Club name: { " + this.AllPlayers.get(NIF).getClub() + " } "
+                    +" Country: { " + this.AllPlayers.get(NIF).getCountry() + " } " ;
         }
-        return "Aquest jugador no existeix";
+        return "This player doesn't exist";
     }
     public String getClubsPlayers (String NIF){
         if(this.AllPlayers.containsKey(NIF)){
-            return "Jugador: " + "{ " +this.AllPlayers.get(NIF).getName() +" }" + " Clubs: { " + Clubs(this.AllPlayers.get(NIF))+ " }";
+            return "Player: " + "{ " +this.AllPlayers.get(NIF).getName() +" }" + " Clubs: { " + Clubs(this.AllPlayers.get(NIF))+ " }";
         }
         else{
-            return "Aquest jugador no existeix";
+            return "This club doesn't exist";
         }
     }
         
