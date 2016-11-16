@@ -1,3 +1,5 @@
+package interBket;
+
 
 import java.util.Calendar;
 
@@ -28,6 +30,8 @@ public class BsketMain {
         bd.ContractPlayer(c1, p3);
         bd.ContractPlayer(c2, p3);
         bd.ContractPlayer(c2, p1);
+        System.out.println(bd.getClubInfo("Hello"));
+        System.out.println(bd.getPlayerInfo("Kobe"));
         System.out.println(bd.getClubInfo("Lleida"));
         System.out.println(bd.getClubInfo("Sicoris"));
         System.out.println(bd.getPlayerInfo("5"));

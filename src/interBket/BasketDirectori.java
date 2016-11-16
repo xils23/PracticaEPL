@@ -1,3 +1,5 @@
+package interBket;
+
 
 import java.io.Serializable;
 import java.util.Calendar;
@@ -8,6 +10,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
+import java.util.ResourceBundle;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,10 +24,12 @@ import java.util.Map;
  * @author Carles
  */
 public class BasketDirectori<C,P> {
+    private static final ResourceBundle i18n = ResourceBundle.getBundle("Bundle");
     Map<Club,List<Player>> Directori;
     Map<Player, List<Club>> PlayersDir;
     Map<String, Player> AllPlayers;
     Map<String, Club> AllClubs;
+   
     public BasketDirectori(){
         this.Directori = new HashMap<>();
         this.PlayersDir = new HashMap<>();
@@ -67,27 +73,28 @@ public class BasketDirectori<C,P> {
     }
     public String getClubInfo (String Name){
         if(this.AllClubs.containsKey(Name)){
-        return "Club: {"+ Name +"} " + " Players: {" + Players(this.AllClubs.get(Name))+"}";
+        return "Club: {"+ Name +"} " + i18n.getString("Players")+": {" + Players(this.AllClubs.get(Name))+"}";
             }
         else{
-            return "This player doesn't exist";
+            return i18n.getString("This club doesn't exist");
         }
     }
     public String getPlayerInfo (String NIF){
         if(this.AllPlayers.containsKey(NIF)){
-            return "Player data:\n Player name:{ " + this.AllPlayers.get(NIF).getName()+ " }" + " NIF:{ " + NIF + " } " + " Height:{ "+this.AllPlayers.get(NIF).getHeight()+" } " 
-                    +" Birth:{ "+this.AllPlayers.get(NIF).getBorn() + " } " + " Position: { " + this.AllPlayers.get(NIF).getPosition() + " } " 
-                    + " Club name: { " + this.AllPlayers.get(NIF).getClub() + " } "
-                    +" Country: { " + this.AllPlayers.get(NIF).getCountry() + " } " ;
+            return i18n.getString("Player data")+":\n" + i18n.getString("Player name")+":{ " + this.AllPlayers.get(NIF).getName()+ " }" + " NIF:{ " + NIF + " } " 
+                    + i18n.getString("Height")+":{ "+this.AllPlayers.get(NIF).getHeight()+" } " 
+                    +i18n.getString("Birth")+":{ "+this.AllPlayers.get(NIF).getBorn() + " } " + i18n.getString("Position") + ": { " + this.AllPlayers.get(NIF).getPosition() + " } " 
+                    +i18n.getString("Club name")+": { " + this.AllPlayers.get(NIF).getClub() + " } "
+                    +i18n.getString("Country")+": { " + this.AllPlayers.get(NIF).getCountry() + " } " ;
         }
-        return "This player doesn't exist";
+        return i18n.getString("This player doesn't exist");
     }
     public String getClubsPlayers (String NIF){
         if(this.AllPlayers.containsKey(NIF)){
-            return "Player: " + "{ " +this.AllPlayers.get(NIF).getName() +" }" + " Clubs: { " + Clubs(this.AllPlayers.get(NIF))+ " }";
+            return i18n.getString("Player")+": " + "{ " +this.AllPlayers.get(NIF).getName() +" }" + " Clubs: { " + Clubs(this.AllPlayers.get(NIF))+ " }";
         }
         else{
-            return "This club doesn't exist";
+            return i18n.getString("This player doesn't exist");
         }
     }
         
